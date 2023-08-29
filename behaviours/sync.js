@@ -27,18 +27,38 @@
 
 // Promises
 
-function prom(complete){
-    return new Promise(function (resolve, reject){
-if(complete){
-    resolve("promise successful");
-}
-else{
-    reject("promise rejected");
-}
+// function prom(complete){
+//     return new Promise(function (resolve, reject){
+// if(complete){
+//     resolve("promise successful");
+// }
+// else{
+//     reject("promise rejected");
+// }
+//     })
+// }
+// // console.log(prom(true));
+// prom(false).then((response) => {console.log(response)}).catch(error => console.log(error));
+
+
+fetch('https://dummyjson.com/products').then(response => response.json()).then(data => {
+    let tbody = document.getElementById('tabbody');
+    data.products.forEach(e => {
+        // document.write(e.id + "<br>" + "<h1>" + e.title  + "</h1>" + + "<br>" + e.description  + "<br>");
+    
+    tbody.innerHTML += `
+        <tr>
+            <th scope="row">${e.id}</th>
+            <td>${e.title}</td>
+            <td>${e.description}</td>
+            <td>${e.price}</td>
+            <td><img src="${e.images[0]}" alt="" height="50px" width="50px"></td>
+        </tr>
+    `
     })
-}
-// console.log(prom(true));
-prom(false).then((response) => {console.log(response)}).catch(error => console.log(error));
+// document.write(data)
+});
+
 
 
 

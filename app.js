@@ -108,9 +108,8 @@ let ar = ["apple",  "orange", "grapes", "banana"];
     i++;
 }
 while(i < ar.length);
-ar.forEach((value, index) => {
-    document.write("<br>" + value  +  index);
-})
+ar.forEach(value =>document.write("<br>" + value)
+)
 
 
 
