@@ -4,7 +4,6 @@
 // console.log("second statement");
 // console.log("third statement");
 
-
 // Asynchronous behaviour
 
 // console.log("first statement");
@@ -13,7 +12,7 @@
 //         // console.log("second statement");
 //         callback();
 //     }, 3000);
-    
+
 // }
 // console.log("second statement");
 // function fullname(){
@@ -23,7 +22,6 @@
 // setInterval(() => {
 //    document.write("after one sec");
 // }, 1000);
-
 
 // Promises
 
@@ -40,32 +38,28 @@
 // // console.log(prom(true));
 // prom(false).then((response) => {console.log(response)}).catch(error => console.log(error));
 
+fetch("https://dummyjson.com/users")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.users);
+    let cbody = document.getElementById("cbody");
+    data.users.forEach((e) => {
+      // document.write(e.id + "<br>" + "<h1>" + e.title  + "</h1>" + + "<br>" + e.description  + "<br>");
 
-fetch('https://dummyjson.com/products').then(response => response.json()).then(data => {
-    let tbody = document.getElementById('tabbody');
-    data.products.forEach(e => {
-        // document.write(e.id + "<br>" + "<h1>" + e.title  + "</h1>" + + "<br>" + e.description  + "<br>");
-    
-    tbody.innerHTML += `
-        <tr>
-            <th scope="row">${e.id}</th>
-            <td>${e.title}</td>
-            <td>${e.description}</td>
-            <td>${e.price}</td>
-            <td><img src="${e.images[0]}" alt="" height="50px" width="50px"></td>
-        </tr>
-    `
-    })
-// document.write(data)
-});
-
-
-
-
-
-
-
-
-
-
-
+      cbody.innerHTML += `
+    <div class="col-lg-3 col-md-4 col-sm-6" >
+        <div class="card"">
+    <img src="${
+      e.image
+    }" class="card-img-top" alt="..." width="100%" height="100%">
+    <div class="card-body">
+      <h5 class="card-title">${e.firstName + e.lastName}</h5>
+      <p class="card-text">${e.email + e.gender}</p>
+      <a href="#" class="btn btn-primary">${e.address.address}</a>
+    </div>
+  </div>
+  </div>
+    `;
+    });
+    // document.write(data)
+  });
