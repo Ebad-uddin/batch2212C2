@@ -31,22 +31,60 @@
 
 // Classes in js
 
-class CellPhones {
-    constructor(make, model, color, price ){
-        this.Make = make,
-        this.Model = model,
-        this.Color = color,
-        this.Price = price
+// class CellPhones {
+//     constructor(make, model, color, price ){
+//         this.Make = make,
+//         this.Model = model,
+//         this.Color = color,
+//         this.Price = price
+//     }
+//     msg(){
+//         console.log("hello");
+//     }
+// }
+
+// let nokia1 = new CellPhones("Nokia", "1112", "black", "3400")
+// nokia1.msg();
+// console.log(nokia1);
+
+/* 
+Object Oriented Programming (OOP)
+inheritence
+Abstraction
+encapsulation
+polymorphysm
+*/
+
+
+
+class Telephone{
+    constructor(call_aati_hai, call_jati_Hai){
+        this.incoming = call_aati_hai,
+        this.outgoing = call_jati_Hai 
     }
-    msg(){
-        console.log("hello");
+    parent(){
+        console.log("Mai abba hun");
     }
 }
 
-let nokia1 = new CellPhones("Nokia", "1112", "black", "3400")
-nokia1.msg();
-// console.log(nokia1);
+class Mobile extends Telephone{
+    constructor(call_aati_hai, call_jati_hai, camera, wifi){        // child constructor
+        super(call_aati_hai, call_jati_hai)     // parent constructor
+        this.Camera = camera,
+        this.Wifi = wifi
+    }
+    child(){
+        console.log("Mai Bacha hun");
+    }
+}
 
+let PTCL = new Telephone("callati hai", "call jati hai");
+let cellphone = new Mobile("callati hai", "call jati hai", "camera supported", "wifi supported");
+cellphone.child();
+cellphone.parent();
+// PTCL.child();
+console.log(PTCL);
+console.log(cellphone);
 
 
 
